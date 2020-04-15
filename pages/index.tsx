@@ -54,26 +54,32 @@ export default function Index() {
         <Typography variant="h3" component="h1" gutterBottom>
           GT Photo Gallery
         </Typography>
-        <Typography component="p" gutterBottom>
-          Select Width
-        </Typography>
-        <Select native value={width} onChange={handleWidthSelection}>
-          <option aria-label="None" value={ALL}>
-            ALL
-          </option>
-          <option value={100}>100</option>
-          <option value={250}>250</option>
-          <option value={300}>300</option>
-          <option value={400}>400</option>
-        </Select>
-        <Typography component="p" gutterBottom>
-          Grayscale?
-        </Typography>
-        <Switch
-          checked={showGrayscale}
-          onChange={() => setShowGrayscale(!showGrayscale)}
-        />
       </Box>
+      <Grid container spacing={3} justify="center">
+        <Grid item>
+          <Typography component="p" gutterBottom>
+            Select Width
+          </Typography>
+          <Select native value={width} onChange={handleWidthSelection}>
+            <option aria-label="None" value={ALL}>
+              ALL
+            </option>
+            <option value={100}>100</option>
+            <option value={250}>250</option>
+            <option value={300}>300</option>
+            <option value={400}>400</option>
+          </Select>
+        </Grid>
+        <Grid item>
+          <Typography component="p" gutterBottom>
+            Grayscale?
+          </Typography>
+          <Switch
+            checked={showGrayscale}
+            onChange={() => setShowGrayscale(!showGrayscale)}
+          />
+        </Grid>
+      </Grid>
       <Grid container spacing={3}>
         {data &&
           data.photos.map((photo, i) => (

@@ -8,7 +8,7 @@ This is an application that allows the viewing of photos in a responsive gallery
 
 ## Getting Started
 
-Quickest way is to see the latest deployed code in codesandbox
+Quickest way is to see the latest deployed code in [Codesandbox](https://codesandbox.io/s/github/Kphillycat/gt-photo-viewer) 👉https://codesandbox.io/s/github/Kphillycat/gt-photo-viewer
 
 Locally you can run the application in development mode via the `npm run dev` command.
 
