@@ -35,6 +35,7 @@ TODO
 
 - [NextJS](https://nextjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
+- [Material UI](https://material-ui.com/)
 
 ## Versioning
 

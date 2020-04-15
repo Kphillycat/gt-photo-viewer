@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@material-ui/core": "^4.9.10",
+    "@material-ui/lab": "^4.0.0-alpha.49",
     "csv-loader": "^3.0.2",
     "next": "^9.3.4",
     "react": "^16.13.1",

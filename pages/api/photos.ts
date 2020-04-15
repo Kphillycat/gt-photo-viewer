@@ -3,5 +3,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 const { getPhotos } = require("../../services/db");
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  res.status(200).json({ photos: await getPhotos() });
+  const {
+    query: { start, limit },
+  } = req;
+  res.status(200).json({ photos: await getPhotos(limit, start) });
 };
