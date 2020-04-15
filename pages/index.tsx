@@ -10,6 +10,8 @@ import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import Pagination from "@material-ui/lab/Pagination";
 import Select from "@material-ui/core/Select";
+import Switch from "@material-ui/core/Switch";
+
 import { makeStyles } from "@material-ui/core/styles";
 
 import { ALL } from "../lib/constants";
@@ -27,6 +29,7 @@ export default function Index() {
   const [start, setStart] = useState(0);
   const [page, setPage] = useState(1);
   const [width, setWidth] = useState(ALL);
+  const [showGrayscale, setShowGrayscale] = useState(false);
   const { data, error } = useSWR(
     `/api/photos?limit=${limit}&start=${start}&width=${width}`,
     fetcher
@@ -63,13 +66,23 @@ export default function Index() {
           <option value={300}>300</option>
           <option value={400}>400</option>
         </Select>
+        <Typography component="p" gutterBottom>
+          Grayscale?
+        </Typography>
+        <Switch
+          checked={showGrayscale}
+          onChange={() => setShowGrayscale(!showGrayscale)}
+        />
       </Box>
       <Grid container spacing={3}>
         {data &&
           data.photos.map((photo, i) => (
             <Grid item key={i}>
               <Card>
-                <CardMedia className={classes.media} image={photo} />
+                <CardMedia
+                  className={classes.media}
+                  image={`${photo}${showGrayscale ? "?grayscale" : ""}`}
+                />
               </Card>
             </Grid>
           ))}
