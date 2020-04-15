@@ -6,6 +6,8 @@ This is an application that allows the viewing of photos in a responsive gallery
 - Filtering
 - Grayscale toggling
 
+![demo](./images/gt-photo-viewer.gif)
+
 ## Getting Started
 
 Quickest way is to see the latest deployed code in [Codesandbox](https://codesandbox.io/s/github/Kphillycat/gt-photo-viewer) 👉https://codesandbox.io/s/github/Kphillycat/gt-photo-viewer
