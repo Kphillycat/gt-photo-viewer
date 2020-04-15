@@ -29,7 +29,9 @@ npm install
 
 ## Deployment
 
-TODO
+Can be deployed to any static site deployment tool (ex: [Zeit](https://zeit.co/) )
+
+Build command via `npm run build`
 
 ## Built With
 
@@ -39,7 +41,7 @@ TODO
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors
 

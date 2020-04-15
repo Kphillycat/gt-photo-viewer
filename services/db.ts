@@ -1,10 +1,10 @@
 import fetch from "node-fetch";
 import { ALL, WIDTH_INDEX } from "../lib/constants";
 
-let PHOTOS = [];
-let FILTERED_PHOTOS = {};
+let PHOTOS: Array<string> = [];
+let FILTERED_PHOTOS: { [index: string]: Array<string> } = {};
 
-const getPhotosByWidth = (photos, width) => {
+const getPhotosByWidth = (photos: Array<string>, width: string) => {
   if (FILTERED_PHOTOS[width]) {
     console.log("filtered photos from cache", width);
     return FILTERED_PHOTOS[width];
@@ -12,19 +12,25 @@ const getPhotosByWidth = (photos, width) => {
 
   // Find and filter by width in the photo url
   FILTERED_PHOTOS[width] = photos.filter((photo) => {
-    if (width === photo.match(/\w+/g)[WIDTH_INDEX]) return photo;
+    let photoUrlParts = photo.match(/\w+/g);
+    if (photoUrlParts && width === photoUrlParts[WIDTH_INDEX]) return photo;
   });
   return FILTERED_PHOTOS[width];
 };
 
-const getFilteredPhotos = (photos, limit, start, width = ALL) => {
+const getFilteredPhotos = (
+  photos: Array<string>,
+  limit: number,
+  start: number,
+  width = ALL
+) => {
   if (width === ALL) {
     return photos.slice(start, limit);
   }
   return getPhotosByWidth(photos, width).slice(start, limit);
 };
 
-const getPhotos = async (limit, start, width = ALL) => {
+const getPhotos = async (limit: number, start: number, width = ALL) => {
   if (PHOTOS.length > 0) {
     console.log("photos retrieved from cache");
     return getFilteredPhotos(PHOTOS, limit, start, width);

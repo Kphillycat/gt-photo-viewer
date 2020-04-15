@@ -16,7 +16,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import { ALL } from "../lib/constants";
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
+const fetcher = (url: string) => fetch(url).then((r) => r.json());
 const useStyles = makeStyles({
   media: {
     height: 200,
@@ -37,15 +37,20 @@ export default function Index() {
 
   const classes = useStyles();
 
-  const handlePagination = (event, value) => {
+  const handlePagination = (
+    event: React.ChangeEvent<unknown>,
+    value: number
+  ) => {
     setPage(value);
     let startOffset = (value - 1) * 10;
     setStart(startOffset);
     setLimit(startOffset + 10);
   };
 
-  const handleWidthSelection = ({ target: { value } }) => {
-    setWidth(value);
+  const handleWidthSelection = ({
+    target: { value },
+  }: React.ChangeEvent<{ value: unknown }>) => {
+    setWidth(value as string);
   };
 
   return (
@@ -82,7 +87,7 @@ export default function Index() {
       </Grid>
       <Grid container spacing={3}>
         {data &&
-          data.photos.map((photo, i) => (
+          data.photos.map((photo: string, i: number) => (
             <Grid item key={i}>
               <Card>
                 <CardMedia
